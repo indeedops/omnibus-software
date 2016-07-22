@@ -32,7 +32,7 @@ env = {
   "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
   "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
   "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
-  "PATH" => "#{install_dir}/embedded/bin:#{ENV["PATH"]}"
+  "PATH" => "#{install_dir}/embedded/bin:#{ENV["PATH"]}",
 }
 
 build do
@@ -51,7 +51,7 @@ build do
           :env => env)
 
   # build it
-  command "make all", :env => {"LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
+  command "make all", :env => { "LD_RUN_PATH" => "#{install_dir}/embedded/lib" }
 
   # move it
   mkdir "#{install_dir}/embedded/nagios/libexec"

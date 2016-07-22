@@ -36,7 +36,7 @@ build_env = {
   "ERLC" => "#{install_dir}/embedded/bin/erlc",
   "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
   "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
-  "PATH" => "#{install_dir}/embedded/bin:#{ENV["PATH"]}"
+  "PATH" => "#{install_dir}/embedded/bin:#{ENV["PATH"]}",
 }
 
 build do

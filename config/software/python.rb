@@ -24,31 +24,31 @@ dependency "bzip2"
 dependency "libsqlite3"
 
 source :url => "http://python.org/ftp/python/#{version}/Python-#{version}.tgz",
-       :sha256 => '3cb522d17463dfa69a155ab18cffa399b358c966c0363d6c8b5b3bf1384da4b6'
+       :sha256 => "3cb522d17463dfa69a155ab18cffa399b358c966c0363d6c8b5b3bf1384da4b6"
 
 relative_path "Python-#{version}"
 
 env = {
   "CFLAGS" => "-I#{install_dir}/embedded/include -O3 -g -pipe",
-  "LDFLAGS" => "-Wl,-rpath,#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib"
+  "LDFLAGS" => "-Wl,-rpath,#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib",
 }
 
 python_configure = ["./configure",
                     "--enable-universalsdk=/",
                     "--prefix=#{install_dir}/embedded"]
 
-if ohai['platform_family'] == 'mac_os_x'
-  python_configure.push('--enable-ipv6',
-                        '--with-universal-archs=intel',
-                        '--enable-shared')
+if ohai["platform_family"] == "mac_os_x"
+  python_configure.push("--enable-ipv6",
+                        "--with-universal-archs=intel",
+                        "--enable-shared")
 end
 
 python_configure.push("--with-dbmliborder=")
 
 build do
   ship_license "PSFL"
-  patch :source => 'python-2.7.11-avoid-allocating-thunks-in-ctypes.patch' if linux?
-  patch :source => 'python-2.7.11-fix-platform-ubuntu.diff' if linux?
+  patch :source => "python-2.7.11-avoid-allocating-thunks-in-ctypes.patch" if linux?
+  patch :source => "python-2.7.11-fix-platform-ubuntu.diff" if linux?
 
   command python_configure.join(" "), :env => env
   command "make -j #{workers}", :env => env

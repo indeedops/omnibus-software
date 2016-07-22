@@ -24,18 +24,18 @@ source :url => "http://rpm5.org/files/popt/popt-1.16.tar.gz",
 relative_path "popt-1.16"
 
 env =
-  case ohai['platform']
+  case ohai["platform"]
   when "solaris2"
     {
       "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
       "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
-      "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
+      "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
     }
   else
     {
       "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
       "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
-      "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
+      "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
     }
   end
 

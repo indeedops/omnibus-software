@@ -31,7 +31,7 @@ env = {
   "OPENSSLDIR" => "#{install_dir}/embedded",
   "EXPATDIR" => "#{install_dir}/embedded",
   "CURLDIR" => "#{install_dir}/embedded",
-  "LIBPCREDIR" => "#{install_dir}/embedded"
+  "LIBPCREDIR" => "#{install_dir}/embedded",
 }
 
 build do

@@ -23,17 +23,17 @@ dependency "openssl"
 dependency "ncurses"
 
 version "R15B03-1" do
-  source :md5 => 'eccd1e6dda6132993555e088005019f2'
+  source :md5 => "eccd1e6dda6132993555e088005019f2"
   relative_path "otp_src_R15B03"
 end
 
 version "R16B03-1" do
-  source md5: 'e5ece977375197338c1b93b3d88514f8'
+  source md5: "e5ece977375197338c1b93b3d88514f8"
   relative_path "otp_src_#{version}"
 end
 
 version "R15B02" do
-  source md5: 'ccbe5e032a2afe2390de8913bfe737a1'
+  source md5: "ccbe5e032a2afe2390de8913bfe737a1"
   relative_path "otp_src_#{version}"
 end
 
@@ -41,7 +41,7 @@ source :url => "http://www.erlang.org/download/otp_src_#{version}.tar.gz"
 
 env = {
   "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/erlang/include",
-  "LDFLAGS" => "-Wl,-rpath #{install_dir}/embedded/lib -L#{install_dir}/embedded/lib -I#{install_dir}/embedded/erlang/include"
+  "LDFLAGS" => "-Wl,-rpath #{install_dir}/embedded/lib -L#{install_dir}/embedded/lib -I#{install_dir}/embedded/erlang/include",
 }
 
 build do

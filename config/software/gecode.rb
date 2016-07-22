@@ -34,7 +34,7 @@ test = Mixlib::ShellOut.new("test -f /usr/bin/gcc44")
 test.run_command
 
 configure_env = if test.exitstatus == 0
-                  {"CC" => "gcc44", "CXX" => "g++44"}
+                  { "CC" => "gcc44", "CXX" => "g++44" }
                 else
                   {}
                 end

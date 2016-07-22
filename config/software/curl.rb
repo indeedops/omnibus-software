@@ -29,7 +29,7 @@ relative_path "curl-#{version}"
 build do
   ship_license "https://raw.githubusercontent.com/bagder/curl/master/COPYING"
   block do
-    FileUtils.rm_rf(File.join(project_dir, 'src/tool_hugehelp.c'))
+    FileUtils.rm_rf(File.join(project_dir, "src/tool_hugehelp.c"))
   end
 
   command ["./configure",
@@ -49,6 +49,6 @@ build do
            "--with-ssl=#{install_dir}/embedded",
            "--with-zlib=#{install_dir}/embedded"].join(" ")
 
-  command "make -j #{workers}", :env => {"LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
+  command "make -j #{workers}", :env => { "LD_RUN_PATH" => "#{install_dir}/embedded/lib" }
   command "make install"
 end

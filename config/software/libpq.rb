@@ -14,7 +14,7 @@ relative_path "postgresql-#{version}"
 env = {
   "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
   "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
-  "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
+  "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
 }
 
 build do
@@ -25,7 +25,7 @@ build do
             "--with-openssl",
             "--with-includes=#{install_dir}/embedded/include",
             "--with-libraries=#{install_dir}/embedded/lib" ].join(" "), :env => env
-  command "make -j #{workers}", :env => { "LD_RUN_PATH" => "#{install_dir}/embedded/lib"}
+  command "make -j #{workers}", :env => { "LD_RUN_PATH" => "#{install_dir}/embedded/lib" }
   mkdir "#{install_dir}/embedded/include/postgresql"
   command "make -C src/include install"
   command "make -C src/interfaces install"

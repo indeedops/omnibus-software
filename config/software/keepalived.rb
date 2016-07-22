@@ -35,7 +35,7 @@ relative_path "keepalived-#{version}"
 env = {
   "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
   "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -static-libgcc",
-  "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
+  "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
 }
 
 build do
@@ -49,5 +49,3 @@ build do
   command "make -j #{workers}", :env => env
   command "make install"
 end
-
-

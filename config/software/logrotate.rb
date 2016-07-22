@@ -35,7 +35,7 @@ env = {
   "EXTRA_CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
 
   # Needed to find libpopt
-  "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
+  "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
 }
 
 build do
@@ -47,5 +47,5 @@ build do
   # installed into #{install_dir}/embedded/sbin
   #
   # :(
-  command "make install", :env => {"PREFIX" => "#{install_dir}/embedded"}
+  command "make install", :env => { "PREFIX" => "#{install_dir}/embedded" }
 end
